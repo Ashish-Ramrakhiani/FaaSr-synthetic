@@ -1,0 +1,54 @@
+[4.177] [INFO] [faasr_entry.py] FLARE: Setting up configuration directory before function execution
+[4.178] [INFO] [faasr_entry.py] Searching for FLARE configuration in: /action
+[4.178] [INFO] [faasr_entry.py] No FLARE configuration directory found - proceeding with default directory
+[4.178] [INFO] [faasr_entry.py] FLARE: No configuration directory setup needed
+[4.178] [DEBUG] [executor.py] Starting dependency install
+[4.178] [INFO] [faasr_start_invoke_helper.py] Get git repo files: addelany/FCRE-forecast-code-FaaSr
+[4.456] [INFO] [faasr_start_invoke_helper.py] Successfully downloaded GitHub repo: addelany/FCRE-forecast-code-FaaSr
+[4.457] [DEBUG] [faasr_start_invoke_helper.py] Packages in /tmp/Rlibs: []
+[4.457] [DEBUG] [executor.py] Starting dependency install
+[4.457] [INFO] [faasr_start_invoke_helper.py] Get git repo files: addelany/FCRE-forecast-code-FaaSr
+[4.637] [INFO] [faasr_start_invoke_helper.py] Successfully downloaded GitHub repo: addelany/FCRE-forecast-code-FaaSr
+[4.638] [DEBUG] [faasr_start_invoke_helper.py] Packages in /tmp/Rlibs: []
+[4.638] [DEBUG] [executor.py] Finished installing dependencies
+[4.638] [INFO] [executor.py] Starting server on localhost port 8000
+"faasr_user_function":Errors in the user function - Error in file(file, "rt", encoding = fileEncoding): cannot open the connection
+
+[5.154] [DEBUG] [log.py] Log succesfully uploaded
+[6.028] [INFO] [faasr_server.py] Processing request: faasr_log
+[6.028] [INFO] [faasr_server.py] Processing request: faasr_log
+[6.736] [DEBUG] [log.py] Log succesfully uploaded
+[6.736] [DEBUG] [log.py] Log succesfully uploaded
+[7.442] [DEBUG] [log.py] Log succesfully uploaded
+[7.442] [DEBUG] [log.py] Log succesfully uploaded
+[8.237] [DEBUG] [log.py] Log succesfully uploaded
+[8.237] [DEBUG] [log.py] Log succesfully uploaded
+[5.154] [DEBUG] [log.py] Log succesfully uploaded
+[5.157] [DEBUG] [executor.py] Polling localhost
+[5.188] [INFO] [executor.py] Starting function: check_weather (R)
+[8.65] [DEBUG] [executor.py] Put function_completions/check-weather.done file in S3
+[9.355] [ERROR] [executor.py] Unkown error while getting user function return
+Stack (most recent call last):
+  File "/action/faasr_entry.py", line 402, in <module>
+    handler()
+  File "/action/faasr_entry.py", line 385, in handler
+    function_result = function_executor.run_func(curr_function, start_time)
+  File "/usr/local/lib/python3.10/dist-packages/FaaSr_py/engine/executor.py", line 217, in run_func
+    function_result = self.get_function_return()
+  File "/usr/local/lib/python3.10/dist-packages/FaaSr_py/engine/executor.py", line 290, in get_function_return
+    logger.error(err_msg, stack_info=True)
+[10.043] [DEBUG] [log.py] Log succesfully uploaded
+[10.044] [ERROR] [executor.py] Unkown error while getting user function return
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/FaaSr_py/engine/executor.py", line 217, in run_func
+    function_result = self.get_function_return()
+  File "/usr/local/lib/python3.10/dist-packages/FaaSr_py/engine/executor.py", line 291, in get_function_return
+    raise RuntimeError(err_msg)
+RuntimeError: Unkown error while getting user function return
+Stack (most recent call last):
+  File "/action/faasr_entry.py", line 402, in <module>
+    handler()
+  File "/action/faasr_entry.py", line 385, in handler
+    function_result = function_executor.run_func(curr_function, start_time)
+  File "/usr/local/lib/python3.10/dist-packages/FaaSr_py/engine/executor.py", line 221, in run_func
+    logger.exception(e, stack_info=True)

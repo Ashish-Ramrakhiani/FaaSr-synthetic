@@ -7,7 +7,7 @@ class ComputeServer:
     Holds data about a compute server in the FaaSr workflow.
 
     Args:
-        faastype (str): FaaS provider type (e.g., GitHubActions, Lambda, OpenWhisk).
+        faastype (str): FaaS provider type (e.g., GitHubActions, Lambda, OpenWhisk, GoogleCloud, SLURM).
         name (str): Name of the compute server.
     """
 
@@ -43,11 +43,19 @@ class Lambda_ComputeServer(ComputeServer):
         name (str): Name of compute server.
         faastype (str): FaaS provider type.
         region (str): AWS region.
+        cpus_per_task (int): CPUs per task.
+        memory (int): Memory in MB.
+        time_limit (int): Time limit in seconds.
+        use_secret_store (bool): Whether to use secret store.
     """
 
-    def __init__(self, name, faastype, region):
+    def __init__(self, name, faastype, region, cpus_per_task=1, memory=512, time_limit=900, use_secret_store=True):
         super().__init__(faastype=faastype, name=name)
         self.region = region
+        self.cpus_per_task = cpus_per_task
+        self.memory = memory
+        self.time_limit = time_limit
+        self.use_secret_store = use_secret_store
 
 
 class GH_ComputeServer(ComputeServer):
@@ -60,13 +68,81 @@ class GH_ComputeServer(ComputeServer):
         username (str): GitHub username.
         action_repo_name (str): GitHub repo for actions.
         branch (str): Branch of the action repo.
+        use_secret_store (bool): Whether to use secret store.
     """
 
-    def __init__(self, name, faastype, username, action_repo_name, branch):
+    def __init__(self, name, faastype, username, action_repo_name, branch, use_secret_store=True):
         super().__init__(faastype=faastype, name=name)
         self.username = username
         self.action_repo_name = action_repo_name
         self.branch = branch
+        self.use_secret_store = use_secret_store
+
+
+class GCP_ComputeServer(ComputeServer):
+    """
+    Holds data about a Google Cloud Platform compute server.
+
+    Args:
+        name (str): Name of compute server.
+        faastype (str): FaaS provider type.
+        namespace (str): GCP namespace/project ID.
+        region (str): GCP region.
+        endpoint (str): GCP endpoint.
+        use_secret_store (bool): Whether to use secret store.
+        client_email (str): Service account client email.
+        token_uri (str): OAuth2 token URI.
+        cpus_per_task (int): CPUs per task.
+        memory (int): Memory in MB.
+        time_limit (int): Time limit in seconds.
+    """
+
+    def __init__(self, name, faastype, namespace, region, endpoint, use_secret_store=True, 
+                 client_email="", token_uri="", cpus_per_task=1, memory=512, time_limit=3600):
+        super().__init__(faastype=faastype, name=name)
+        self.namespace = namespace
+        self.region = region
+        self.endpoint = endpoint
+        self.use_secret_store = use_secret_store
+        self.client_email = client_email
+        self.token_uri = token_uri
+        self.cpus_per_task = cpus_per_task
+        self.memory = memory
+        self.time_limit = time_limit
+
+
+class SLURM_ComputeServer(ComputeServer):
+    """
+    Holds data about a SLURM compute server.
+
+    Args:
+        name (str): Name of compute server.
+        faastype (str): FaaS provider type.
+        endpoint (str): SLURM endpoint.
+        api_version (str): SLURM API version.
+        partition (str): SLURM partition.
+        nodes (int): Number of nodes.
+        tasks (int): Number of tasks.
+        cpus_per_task (int): CPUs per task.
+        username (str): SLURM username.
+        memory (int): Memory in MB.
+        time_limit (int): Time limit in minutes.
+        working_directory (str): Working directory.
+    """
+
+    def __init__(self, name, faastype, endpoint, api_version, partition, nodes, tasks, 
+                 cpus_per_task, username, memory, time_limit, working_directory):
+        super().__init__(faastype=faastype, name=name)
+        self.endpoint = endpoint
+        self.api_version = api_version
+        self.partition = partition
+        self.nodes = nodes
+        self.tasks = tasks
+        self.cpus_per_task = cpus_per_task
+        self.username = username
+        self.memory = memory
+        self.time_limit = time_limit
+        self.working_directory = working_directory
 
 
 class SyntheticFaaSrAction:
@@ -175,7 +251,7 @@ class SyntheticFaaSrWorkflow:
     Represents a FaaSr workflow.
 
     Args:
-        compute_server (ComputeServer): Compute server for FaaS calls.
+        compute_servers (list[ComputeServer]): List of compute servers for FaaS calls.
         data_store (str): Name of S3 data store.
         data_endpoint (str): S3 endpoint.
         bucket (str): Name of S3 bucket.
@@ -190,19 +266,19 @@ class SyntheticFaaSrWorkflow:
 
     def __init__(
         self,
-        compute_server,
-        data_store="My_Minio_Bucket",
-        data_endpoint="https://play.min.io",
-        bucket="faasr",
-        region="us-east-1",
-        writable="TRUE",
+        compute_servers,
+        data_store="My_S3_Bucket",
+        data_endpoint="https://s3.us-west-2.amazonaws.com",
+        bucket="faasr-bucket-0001",
+        region="us-west-2",
+        writable="true",
         files_folder="synthetic_files",
         files=None,
         function_list=None,
         start_function=None,
         function_git_repos=None,
     ):
-        self.compute_server = compute_server
+        self.compute_servers = compute_servers if isinstance(compute_servers, list) else [compute_servers]
         self.data_store = data_store
         self.data_endpoint = data_endpoint
         self.bucket = bucket
@@ -227,26 +303,10 @@ class SyntheticFaaSrWorkflow:
                 for function in self.function_list
             ]
         )
-        output = (
-            f"--------------FAASR WORKFLOW--------------\n"
-            f"Compute Server: {self.compute_server.name}\n"
-            f"FaaS Type: {self.compute_server.faastype}\n"
-        )
-        # Add provider-specific details
-        match self.compute_server.faastype:
-            case "GitHubActions":
-                output += (
-                    f"Username: {getattr(self.compute_server, 'username', '')}\n"
-                    f"Action Repo Name: {getattr(self.compute_server, 'action_repo_name', '')}\n"
-                    f"Branch: {getattr(self.compute_server, 'branch', '')}\n"
-                )
-            case "Lambda":
-                output += f"Region: {getattr(self.compute_server, 'region', '')}\n"
-            case "OpenWhisk":
-                output += (
-                    f"Namespace: {getattr(self.compute_server, 'namespace', '')}\n"
-                    f"Endpoint: {getattr(self.compute_server, 'endpoint', '')}\n"
-                )
+        output = "--------------FAASR WORKFLOW--------------\n"
+        output += "Compute Servers:\n"
+        for server in self.compute_servers:
+            output += f"  - {server.name} ({server.faastype})\n"
         output += (
             f"Data Store: {self.data_store}\n"
             f"Data Endpoint: {self.data_endpoint}\n"

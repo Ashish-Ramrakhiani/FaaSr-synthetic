@@ -9,6 +9,7 @@ from workflow import *
 def write_faasr_obj_to_json(workflow, output_name):
     """
     Serializes a SyntheticFaaSrWorkflow object to FaaSr JSON files.
+    Supports multiple compute servers including GCP and SLURM.
 
     Args:
         workflow (SyntheticFaaSrWorkflow): The workflow object to serialize.
@@ -30,27 +31,67 @@ def write_faasr_obj_to_json(workflow, output_name):
         "FunctionGitHubPackage": {"synthetic_faas_function": []},
     }
 
-    # Add compute server details
-    server = workflow.compute_server
-    faasr_data["ComputeServers"][server.name] = {"FaaSType": server.faastype}
-    match server.faastype:
-        case "GitHubActions":
-            faasr_data["ComputeServers"][server.name].update(
-                {
-                    "UserName": server.username,
-                    "ActionRepoName": server.action_repo_name,
-                    "Branch": server.branch,
-                }
-            )
-        case "Lambda":
-            faasr_data["ComputeServers"][server.name]["Region"] = server.region
-        case "OpenWhisk":
-            faasr_data["ComputeServers"][server.name].update(
-                {
-                    "Namespace": server.namespace,
-                    "Endpoint": server.endpoint,
-                }
-            )
+    # Add all compute server details
+    for server in workflow.compute_servers:
+        faasr_data["ComputeServers"][server.name] = {"FaaSType": server.faastype}
+        
+        match server.faastype:
+            case "GitHubActions":
+                faasr_data["ComputeServers"][server.name].update(
+                    {
+                        "UseSecretStore": server.use_secret_store,
+                        "UserName": server.username,
+                        "ActionRepoName": server.action_repo_name,
+                        "Branch": server.branch,
+                    }
+                )
+            case "Lambda":
+                faasr_data["ComputeServers"][server.name].update(
+                    {
+                        "Region": server.region,
+                        "UseSecretStore": server.use_secret_store,
+                        "CPUsPerTask": server.cpus_per_task,
+                        "Memory": server.memory,
+                        "TimeLimit": server.time_limit,
+                    }
+                )
+            case "OpenWhisk":
+                faasr_data["ComputeServers"][server.name].update(
+                    {
+                        "Namespace": server.namespace,
+                        "SSL": server.ssl,
+                        "Endpoint": server.endpoint,
+                    }
+                )
+            case "GoogleCloud":
+                faasr_data["ComputeServers"][server.name].update(
+                    {
+                        "Namespace": server.namespace,
+                        "Region": server.region,
+                        "Endpoint": server.endpoint,
+                        "UseSecretStore": server.use_secret_store,
+                        "ClientEmail": server.client_email,
+                        "TokenUri": server.token_uri,
+                        "CPUsPerTask": server.cpus_per_task,
+                        "Memory": server.memory,
+                        "TimeLimit": server.time_limit,
+                    }
+                )
+            case "SLURM":
+                faasr_data["ComputeServers"][server.name].update(
+                    {
+                        "Endpoint": server.endpoint,
+                        "APIVersion": server.api_version,
+                        "Partition": server.partition,
+                        "Nodes": server.nodes,
+                        "Tasks": server.tasks,
+                        "CPUsPerTask": server.cpus_per_task,
+                        "UserName": server.username,
+                        "Memory": server.memory,
+                        "TimeLimit": server.time_limit,
+                        "WorkingDirectory": server.working_directory,
+                    }
+                )
 
     # Add data store details
     faasr_data["DataStores"][workflow.data_store] = {
@@ -65,17 +106,17 @@ def write_faasr_obj_to_json(workflow, output_name):
         faasr_data["ActionContainers"][function.name] = function.action_container
         faasr_data["ActionList"][function.name] = {
             "FunctionName": function.function_name,
-            "FaaSServer": server.name,
+            "FaaSServer": function.compute_server.name,  # Use the server assigned to this specific action
             "Type": function.type,
             "Arguments": {
                 "execution_time": function.execution_time,
                 "folder": workflow.files_folder,
                 "input_files": function.input_files,
                 "input_size_in_bytes": sum(
-                    workflow.files[file] for file in function.input_files
+                    workflow.files.get(file, 0) for file in function.input_files
                 ),
                 "output_size_in_bytes": sum(
-                    workflow.files[file] for file in function.output_files
+                    workflow.files.get(file, 0) for file in function.output_files
                 ),
                 "actionid": function.name,
             },
@@ -83,7 +124,7 @@ def write_faasr_obj_to_json(workflow, output_name):
         }
 
     # Write main workflow JSON
-    os.mkdir(output_name)
+    os.makedirs(output_name, exist_ok=True)
     with open(f"{output_name}/{output_name}.json", "w") as outfile:
         json.dump(faasr_data, outfile, indent=4)
 

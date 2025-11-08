@@ -1,0 +1,2588 @@
+{
+    "ComputeServers": {
+        "My_GitHub_Account": {
+            "FaaSType": "GitHubActions",
+            "UserName": "YOUR_GITHUB_USERNAME",
+            "ActionRepoName": "faasr-synthetic-example",
+            "Branch": "main"
+        }
+    },
+    "DataStores": {
+        "My_Minio_Bucket": {
+            "Endpoint": "https://play.min.io",
+            "Bucket": "faasr",
+            "Region": "us-east-1",
+            "Writable": "TRUE"
+        }
+    },
+    "ActionList": {
+        "split_fasta_ID000001": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 3.153772,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "large.fasta",
+                    "split_fasta"
+                ],
+                "input_size_in_bytes": 201390,
+                "output_size_in_bytes": 201391,
+                "actionid": "split_fasta_ID000001"
+            },
+            "InvokeNext": [
+                "blastall_ID000002",
+                "blastall_ID000003",
+                "blastall_ID000004",
+                "blastall_ID000005",
+                "blastall_ID000006",
+                "blastall_ID000007",
+                "blastall_ID000008",
+                "blastall_ID000009",
+                "blastall_ID000010",
+                "blastall_ID000011",
+                "blastall_ID000012",
+                "blastall_ID000013",
+                "blastall_ID000014",
+                "blastall_ID000015",
+                "blastall_ID000016",
+                "blastall_ID000017",
+                "blastall_ID000018",
+                "blastall_ID000019",
+                "blastall_ID000020",
+                "blastall_ID000021",
+                "blastall_ID000022",
+                "blastall_ID000023",
+                "blastall_ID000024",
+                "blastall_ID000025",
+                "blastall_ID000026",
+                "blastall_ID000027",
+                "blastall_ID000028",
+                "blastall_ID000029",
+                "blastall_ID000030",
+                "blastall_ID000031",
+                "blastall_ID000032",
+                "blastall_ID000033",
+                "blastall_ID000034",
+                "blastall_ID000035",
+                "blastall_ID000036",
+                "blastall_ID000037",
+                "blastall_ID000038",
+                "blastall_ID000039",
+                "blastall_ID000040",
+                "blastall_ID000041",
+                "blastall_ID000042",
+                "blastall_ID000043",
+                "blastall_ID000044",
+                "blastall_ID000045",
+                "blastall_ID000046",
+                "blastall_ID000047",
+                "blastall_ID000048",
+                "blastall_ID000049",
+                "blastall_ID000050",
+                "blastall_ID000051",
+                "blastall_ID000052",
+                "blastall_ID000053",
+                "blastall_ID000054",
+                "blastall_ID000055",
+                "blastall_ID000056",
+                "blastall_ID000057",
+                "blastall_ID000058",
+                "blastall_ID000059",
+                "blastall_ID000060",
+                "blastall_ID000061",
+                "blastall_ID000062",
+                "blastall_ID000063",
+                "blastall_ID000064",
+                "blastall_ID000065",
+                "blastall_ID000066",
+                "blastall_ID000067",
+                "blastall_ID000068",
+                "blastall_ID000069",
+                "blastall_ID000070",
+                "blastall_ID000071",
+                "blastall_ID000072",
+                "blastall_ID000073",
+                "blastall_ID000074",
+                "blastall_ID000075",
+                "blastall_ID000076",
+                "blastall_ID000077",
+                "blastall_ID000078",
+                "blastall_ID000079",
+                "blastall_ID000080",
+                "blastall_ID000081",
+                "blastall_ID000082",
+                "blastall_ID000083",
+                "blastall_ID000084",
+                "blastall_ID000085",
+                "blastall_ID000086",
+                "blastall_ID000087",
+                "blastall_ID000088",
+                "blastall_ID000089",
+                "blastall_ID000090",
+                "blastall_ID000091",
+                "blastall_ID000092",
+                "blastall_ID000093",
+                "blastall_ID000094",
+                "blastall_ID000095",
+                "blastall_ID000096",
+                "blastall_ID000097",
+                "blastall_ID000098",
+                "blastall_ID000099",
+                "blastall_ID000100",
+                "blastall_ID000101"
+            ]
+        },
+        "blastall_ID000002": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 972.985955,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.0",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9700,
+                "output_size_in_bytes": 6758,
+                "actionid": "blastall_ID000002"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000003": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 953.164681,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.1",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9701,
+                "output_size_in_bytes": 6200,
+                "actionid": "blastall_ID000003"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000004": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 940.461135,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.2",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9701,
+                "output_size_in_bytes": 6065,
+                "actionid": "blastall_ID000004"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000005": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 979.381077,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.3",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9701,
+                "output_size_in_bytes": 5690,
+                "actionid": "blastall_ID000005"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000006": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1538.121892,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.4",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9701,
+                "output_size_in_bytes": 6179,
+                "actionid": "blastall_ID000006"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000007": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1551.777842,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.5",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9701,
+                "output_size_in_bytes": 5635,
+                "actionid": "blastall_ID000007"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000008": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1387.221607,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.6",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9701,
+                "output_size_in_bytes": 5558,
+                "actionid": "blastall_ID000008"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000009": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1204.606212,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.7",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9701,
+                "output_size_in_bytes": 5501,
+                "actionid": "blastall_ID000009"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000010": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1207.007604,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.8",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9701,
+                "output_size_in_bytes": 5593,
+                "actionid": "blastall_ID000010"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000011": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1246.484906,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.9",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6404,
+                "actionid": "blastall_ID000011"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000012": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1447.363425,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.10",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5727,
+                "actionid": "blastall_ID000012"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000013": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1453.542417,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.11",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5753,
+                "actionid": "blastall_ID000013"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000014": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1338.552827,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.12",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5956,
+                "actionid": "blastall_ID000014"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000015": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1439.895295,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.13",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5762,
+                "actionid": "blastall_ID000015"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000016": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1473.991068,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.14",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5843,
+                "actionid": "blastall_ID000016"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000017": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1484.12775,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.15",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5996,
+                "actionid": "blastall_ID000017"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000018": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1389.451907,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.16",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6105,
+                "actionid": "blastall_ID000018"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000019": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1509.85857,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.17",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5879,
+                "actionid": "blastall_ID000019"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000020": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1209.180834,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.18",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5266,
+                "actionid": "blastall_ID000020"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000021": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1214.130404,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.19",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5402,
+                "actionid": "blastall_ID000021"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000022": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1347.567176,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.20",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6607,
+                "actionid": "blastall_ID000022"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000023": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1592.522167,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.21",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5732,
+                "actionid": "blastall_ID000023"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000024": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1289.28234,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.22",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5935,
+                "actionid": "blastall_ID000024"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000025": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1407.832855,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.23",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6549,
+                "actionid": "blastall_ID000025"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000026": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1313.854187,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.24",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6049,
+                "actionid": "blastall_ID000026"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000027": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1515.01969,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.25",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5444,
+                "actionid": "blastall_ID000027"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000028": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1422.954752,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.26",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5531,
+                "actionid": "blastall_ID000028"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000029": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1565.333312,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.27",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5336,
+                "actionid": "blastall_ID000029"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000030": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1459.081625,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.28",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5653,
+                "actionid": "blastall_ID000030"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000031": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1223.798375,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.29",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5974,
+                "actionid": "blastall_ID000031"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000032": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1214.590311,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.30",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5757,
+                "actionid": "blastall_ID000032"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000033": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1536.27985,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.31",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6083,
+                "actionid": "blastall_ID000033"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000034": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1448.966434,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.32",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5916,
+                "actionid": "blastall_ID000034"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000035": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1483.829944,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.33",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6179,
+                "actionid": "blastall_ID000035"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000036": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1496.615313,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.34",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6224,
+                "actionid": "blastall_ID000036"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000037": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1242.041332,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.35",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6309,
+                "actionid": "blastall_ID000037"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000038": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1228.21764,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.36",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5382,
+                "actionid": "blastall_ID000038"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000039": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1186.447856,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.37",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6456,
+                "actionid": "blastall_ID000039"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000040": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1321.951119,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.38",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6614,
+                "actionid": "blastall_ID000040"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000041": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1173.722457,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.39",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5887,
+                "actionid": "blastall_ID000041"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000042": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1209.13516,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.40",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6056,
+                "actionid": "blastall_ID000042"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000043": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1324.404741,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.41",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5857,
+                "actionid": "blastall_ID000043"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000044": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1132.249179,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.42",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5900,
+                "actionid": "blastall_ID000044"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000045": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1213.916233,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.43",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6290,
+                "actionid": "blastall_ID000045"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000046": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1289.125392,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.44",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5603,
+                "actionid": "blastall_ID000046"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000047": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1206.151687,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.45",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5841,
+                "actionid": "blastall_ID000047"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000048": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1229.385001,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.46",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5387,
+                "actionid": "blastall_ID000048"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000049": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1103.545506,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.47",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5488,
+                "actionid": "blastall_ID000049"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000050": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1092.5455,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.48",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6615,
+                "actionid": "blastall_ID000050"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000051": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1103.885831,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.49",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6004,
+                "actionid": "blastall_ID000051"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000052": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1109.724218,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.50",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6122,
+                "actionid": "blastall_ID000052"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000053": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1083.350216,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.51",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5583,
+                "actionid": "blastall_ID000053"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000054": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1558.357227,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.52",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6092,
+                "actionid": "blastall_ID000054"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000055": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1487.19635,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.53",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5639,
+                "actionid": "blastall_ID000055"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000056": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1377.6257,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.54",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5340,
+                "actionid": "blastall_ID000056"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000057": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1477.360249,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.55",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5960,
+                "actionid": "blastall_ID000057"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000058": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1509.656541,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.56",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6049,
+                "actionid": "blastall_ID000058"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000059": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1704.10073,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.57",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6172,
+                "actionid": "blastall_ID000059"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000060": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1477.045484,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.58",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5426,
+                "actionid": "blastall_ID000060"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000061": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1635.243803,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.59",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5644,
+                "actionid": "blastall_ID000061"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000062": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1650.463703,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.60",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5768,
+                "actionid": "blastall_ID000062"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000063": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1567.352718,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.61",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5956,
+                "actionid": "blastall_ID000063"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000064": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1688.060794,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.62",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5925,
+                "actionid": "blastall_ID000064"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000065": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1591.380049,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.63",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6020,
+                "actionid": "blastall_ID000065"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000066": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1621.579917,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.64",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6172,
+                "actionid": "blastall_ID000066"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000067": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1631.876191,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.65",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5506,
+                "actionid": "blastall_ID000067"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000068": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1647.823597,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.66",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6073,
+                "actionid": "blastall_ID000068"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000069": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1541.036267,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.67",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5367,
+                "actionid": "blastall_ID000069"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000070": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1533.192559,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.68",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5732,
+                "actionid": "blastall_ID000070"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000071": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1478.350982,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.69",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5209,
+                "actionid": "blastall_ID000071"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000072": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1546.435704,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.70",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6645,
+                "actionid": "blastall_ID000072"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000073": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1546.046212,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.71",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6009,
+                "actionid": "blastall_ID000073"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000074": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1520.841673,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.72",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5580,
+                "actionid": "blastall_ID000074"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000075": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1578.321137,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.73",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6021,
+                "actionid": "blastall_ID000075"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000076": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1631.974347,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.74",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5734,
+                "actionid": "blastall_ID000076"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000077": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1655.092974,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.75",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6044,
+                "actionid": "blastall_ID000077"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000078": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1695.460782,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.76",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6316,
+                "actionid": "blastall_ID000078"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000079": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1516.150317,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.77",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6320,
+                "actionid": "blastall_ID000079"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000080": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1579.956709,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.78",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5742,
+                "actionid": "blastall_ID000080"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000081": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1636.110734,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.79",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6303,
+                "actionid": "blastall_ID000081"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000082": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1559.76259,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.80",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5623,
+                "actionid": "blastall_ID000082"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000083": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1588.809315,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.81",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5595,
+                "actionid": "blastall_ID000083"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000084": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1439.652201,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.82",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5829,
+                "actionid": "blastall_ID000084"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000085": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1552.197814,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.83",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6320,
+                "actionid": "blastall_ID000085"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000086": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1710.210498,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.84",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5076,
+                "actionid": "blastall_ID000086"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000087": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1613.180221,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.85",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5629,
+                "actionid": "blastall_ID000087"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000088": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1597.194856,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.86",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5752,
+                "actionid": "blastall_ID000088"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000089": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1732.336672,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.87",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5955,
+                "actionid": "blastall_ID000089"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000090": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1724.09349,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.88",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6301,
+                "actionid": "blastall_ID000090"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000091": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1644.339069,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.89",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5951,
+                "actionid": "blastall_ID000091"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000092": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1404.29391,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.90",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6126,
+                "actionid": "blastall_ID000092"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000093": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1469.750833,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.91",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5396,
+                "actionid": "blastall_ID000093"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000094": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1430.318701,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.92",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5813,
+                "actionid": "blastall_ID000094"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000095": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1384.058965,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.93",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5910,
+                "actionid": "blastall_ID000095"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000096": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1481.019324,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.94",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6099,
+                "actionid": "blastall_ID000096"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000097": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1467.305656,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.95",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6360,
+                "actionid": "blastall_ID000097"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000098": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "Python",
+            "Arguments": {
+                "execution_time": 1509.735332,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.96",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5800,
+                "actionid": "blastall_ID000098"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000099": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1552.357475,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.97",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 6147,
+                "actionid": "blastall_ID000099"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000100": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1363.342396,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.98",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9702,
+                "output_size_in_bytes": 5596,
+                "actionid": "blastall_ID000100"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "blastall_ID000101": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 1460.581921,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "large.fasta.99",
+                    "nt"
+                ],
+                "input_size_in_bytes": 9703,
+                "output_size_in_bytes": 5776,
+                "actionid": "blastall_ID000101"
+            },
+            "InvokeNext": [
+                "cat_blast_ID000102",
+                "cat_ID000103"
+            ]
+        },
+        "cat_blast_ID000102": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 15.272942,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "cat_blast",
+                    "large.fasta.0.out",
+                    "large.fasta.1.out",
+                    "large.fasta.2.out",
+                    "large.fasta.3.out",
+                    "large.fasta.4.out",
+                    "large.fasta.5.out",
+                    "large.fasta.6.out",
+                    "large.fasta.7.out",
+                    "large.fasta.8.out",
+                    "large.fasta.9.out",
+                    "large.fasta.10.out",
+                    "large.fasta.11.out",
+                    "large.fasta.12.out",
+                    "large.fasta.13.out",
+                    "large.fasta.14.out",
+                    "large.fasta.15.out",
+                    "large.fasta.16.out",
+                    "large.fasta.17.out",
+                    "large.fasta.18.out",
+                    "large.fasta.19.out",
+                    "large.fasta.20.out",
+                    "large.fasta.21.out",
+                    "large.fasta.22.out",
+                    "large.fasta.23.out",
+                    "large.fasta.24.out",
+                    "large.fasta.25.out",
+                    "large.fasta.26.out",
+                    "large.fasta.27.out",
+                    "large.fasta.28.out",
+                    "large.fasta.29.out",
+                    "large.fasta.30.out",
+                    "large.fasta.31.out",
+                    "large.fasta.32.out",
+                    "large.fasta.33.out",
+                    "large.fasta.34.out",
+                    "large.fasta.35.out",
+                    "large.fasta.36.out",
+                    "large.fasta.37.out",
+                    "large.fasta.38.out",
+                    "large.fasta.39.out",
+                    "large.fasta.40.out",
+                    "large.fasta.41.out",
+                    "large.fasta.42.out",
+                    "large.fasta.43.out",
+                    "large.fasta.44.out",
+                    "large.fasta.45.out",
+                    "large.fasta.46.out",
+                    "large.fasta.47.out",
+                    "large.fasta.48.out",
+                    "large.fasta.49.out",
+                    "large.fasta.50.out",
+                    "large.fasta.51.out",
+                    "large.fasta.52.out",
+                    "large.fasta.53.out",
+                    "large.fasta.54.out",
+                    "large.fasta.55.out",
+                    "large.fasta.56.out",
+                    "large.fasta.57.out",
+                    "large.fasta.58.out",
+                    "large.fasta.59.out",
+                    "large.fasta.60.out",
+                    "large.fasta.61.out",
+                    "large.fasta.62.out",
+                    "large.fasta.63.out",
+                    "large.fasta.64.out",
+                    "large.fasta.65.out",
+                    "large.fasta.66.out",
+                    "large.fasta.67.out",
+                    "large.fasta.68.out",
+                    "large.fasta.69.out",
+                    "large.fasta.70.out",
+                    "large.fasta.71.out",
+                    "large.fasta.72.out",
+                    "large.fasta.73.out",
+                    "large.fasta.74.out",
+                    "large.fasta.75.out",
+                    "large.fasta.76.out",
+                    "large.fasta.77.out",
+                    "large.fasta.78.out",
+                    "large.fasta.79.out",
+                    "large.fasta.80.out",
+                    "large.fasta.81.out",
+                    "large.fasta.82.out",
+                    "large.fasta.83.out",
+                    "large.fasta.84.out",
+                    "large.fasta.85.out",
+                    "large.fasta.86.out",
+                    "large.fasta.87.out",
+                    "large.fasta.88.out",
+                    "large.fasta.89.out",
+                    "large.fasta.90.out",
+                    "large.fasta.91.out",
+                    "large.fasta.92.out",
+                    "large.fasta.93.out",
+                    "large.fasta.94.out",
+                    "large.fasta.95.out",
+                    "large.fasta.96.out",
+                    "large.fasta.97.out",
+                    "large.fasta.98.out",
+                    "large.fasta.99.out"
+                ],
+                "input_size_in_bytes": 589454,
+                "output_size_in_bytes": 560294,
+                "actionid": "cat_blast_ID000102"
+            },
+            "InvokeNext": []
+        },
+        "cat_ID000103": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_GitHub_Account",
+            "Type": "R",
+            "Arguments": {
+                "execution_time": 0.014696,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "large.fasta.0.err",
+                    "large.fasta.1.err",
+                    "large.fasta.2.err",
+                    "large.fasta.3.err",
+                    "large.fasta.4.err",
+                    "large.fasta.5.err",
+                    "large.fasta.6.err",
+                    "large.fasta.7.err",
+                    "large.fasta.8.err",
+                    "large.fasta.9.err",
+                    "large.fasta.10.err",
+                    "large.fasta.11.err",
+                    "large.fasta.12.err",
+                    "large.fasta.13.err",
+                    "large.fasta.14.err",
+                    "large.fasta.15.err",
+                    "large.fasta.16.err",
+                    "large.fasta.17.err",
+                    "large.fasta.18.err",
+                    "large.fasta.19.err",
+                    "large.fasta.20.err",
+                    "large.fasta.21.err",
+                    "large.fasta.22.err",
+                    "large.fasta.23.err",
+                    "large.fasta.24.err",
+                    "large.fasta.25.err",
+                    "large.fasta.26.err",
+                    "large.fasta.27.err",
+                    "large.fasta.28.err",
+                    "large.fasta.29.err",
+                    "large.fasta.30.err",
+                    "large.fasta.31.err",
+                    "large.fasta.32.err",
+                    "large.fasta.33.err",
+                    "large.fasta.34.err",
+                    "large.fasta.35.err",
+                    "large.fasta.36.err",
+                    "large.fasta.37.err",
+                    "large.fasta.38.err",
+                    "large.fasta.39.err",
+                    "large.fasta.40.err",
+                    "large.fasta.41.err",
+                    "large.fasta.42.err",
+                    "large.fasta.43.err",
+                    "large.fasta.44.err",
+                    "large.fasta.45.err",
+                    "large.fasta.46.err",
+                    "large.fasta.47.err",
+                    "large.fasta.48.err",
+                    "large.fasta.49.err",
+                    "large.fasta.50.err",
+                    "large.fasta.51.err",
+                    "large.fasta.52.err",
+                    "large.fasta.53.err",
+                    "large.fasta.54.err",
+                    "large.fasta.55.err",
+                    "large.fasta.56.err",
+                    "large.fasta.57.err",
+                    "large.fasta.58.err",
+                    "large.fasta.59.err",
+                    "large.fasta.60.err",
+                    "large.fasta.61.err",
+                    "large.fasta.62.err",
+                    "large.fasta.63.err",
+                    "large.fasta.64.err",
+                    "large.fasta.65.err",
+                    "large.fasta.66.err",
+                    "large.fasta.67.err",
+                    "large.fasta.68.err",
+                    "large.fasta.69.err",
+                    "large.fasta.70.err",
+                    "large.fasta.71.err",
+                    "large.fasta.72.err",
+                    "large.fasta.73.err",
+                    "large.fasta.74.err",
+                    "large.fasta.75.err",
+                    "large.fasta.76.err",
+                    "large.fasta.77.err",
+                    "large.fasta.78.err",
+                    "large.fasta.79.err",
+                    "large.fasta.80.err",
+                    "large.fasta.81.err",
+                    "large.fasta.82.err",
+                    "large.fasta.83.err",
+                    "large.fasta.84.err",
+                    "large.fasta.85.err",
+                    "large.fasta.86.err",
+                    "large.fasta.87.err",
+                    "large.fasta.88.err",
+                    "large.fasta.89.err",
+                    "large.fasta.90.err",
+                    "large.fasta.91.err",
+                    "large.fasta.92.err",
+                    "large.fasta.93.err",
+                    "large.fasta.94.err",
+                    "large.fasta.95.err",
+                    "large.fasta.96.err",
+                    "large.fasta.97.err",
+                    "large.fasta.98.err",
+                    "large.fasta.99.err"
+                ],
+                "input_size_in_bytes": 0,
+                "output_size_in_bytes": 0,
+                "actionid": "cat_ID000103"
+            },
+            "InvokeNext": []
+        }
+    },
+    "ActionContainers": {
+        "split_fasta_ID000001": "g",
+        "blastall_ID000002": "g",
+        "blastall_ID000003": "g",
+        "blastall_ID000004": "g",
+        "blastall_ID000005": "g",
+        "blastall_ID000006": "g",
+        "blastall_ID000007": "g",
+        "blastall_ID000008": "g",
+        "blastall_ID000009": "g",
+        "blastall_ID000010": "g",
+        "blastall_ID000011": "g",
+        "blastall_ID000012": "g",
+        "blastall_ID000013": "g",
+        "blastall_ID000014": "g",
+        "blastall_ID000015": "g",
+        "blastall_ID000016": "g",
+        "blastall_ID000017": "g",
+        "blastall_ID000018": "g",
+        "blastall_ID000019": "g",
+        "blastall_ID000020": "g",
+        "blastall_ID000021": "g",
+        "blastall_ID000022": "g",
+        "blastall_ID000023": "g",
+        "blastall_ID000024": "g",
+        "blastall_ID000025": "g",
+        "blastall_ID000026": "g",
+        "blastall_ID000027": "g",
+        "blastall_ID000028": "g",
+        "blastall_ID000029": "g",
+        "blastall_ID000030": "g",
+        "blastall_ID000031": "g",
+        "blastall_ID000032": "g",
+        "blastall_ID000033": "g",
+        "blastall_ID000034": "g",
+        "blastall_ID000035": "g",
+        "blastall_ID000036": "g",
+        "blastall_ID000037": "g",
+        "blastall_ID000038": "g",
+        "blastall_ID000039": "g",
+        "blastall_ID000040": "g",
+        "blastall_ID000041": "g",
+        "blastall_ID000042": "g",
+        "blastall_ID000043": "g",
+        "blastall_ID000044": "g",
+        "blastall_ID000045": "g",
+        "blastall_ID000046": "g",
+        "blastall_ID000047": "g",
+        "blastall_ID000048": "g",
+        "blastall_ID000049": "g",
+        "blastall_ID000050": "g",
+        "blastall_ID000051": "g",
+        "blastall_ID000052": "g",
+        "blastall_ID000053": "g",
+        "blastall_ID000054": "g",
+        "blastall_ID000055": "g",
+        "blastall_ID000056": "g",
+        "blastall_ID000057": "g",
+        "blastall_ID000058": "g",
+        "blastall_ID000059": "g",
+        "blastall_ID000060": "g",
+        "blastall_ID000061": "g",
+        "blastall_ID000062": "g",
+        "blastall_ID000063": "g",
+        "blastall_ID000064": "g",
+        "blastall_ID000065": "g",
+        "blastall_ID000066": "g",
+        "blastall_ID000067": "g",
+        "blastall_ID000068": "g",
+        "blastall_ID000069": "g",
+        "blastall_ID000070": "g",
+        "blastall_ID000071": "g",
+        "blastall_ID000072": "g",
+        "blastall_ID000073": "g",
+        "blastall_ID000074": "g",
+        "blastall_ID000075": "g",
+        "blastall_ID000076": "g",
+        "blastall_ID000077": "g",
+        "blastall_ID000078": "g",
+        "blastall_ID000079": "g",
+        "blastall_ID000080": "g",
+        "blastall_ID000081": "g",
+        "blastall_ID000082": "g",
+        "blastall_ID000083": "g",
+        "blastall_ID000084": "g",
+        "blastall_ID000085": "g",
+        "blastall_ID000086": "g",
+        "blastall_ID000087": "g",
+        "blastall_ID000088": "g",
+        "blastall_ID000089": "g",
+        "blastall_ID000090": "g",
+        "blastall_ID000091": "g",
+        "blastall_ID000092": "g",
+        "blastall_ID000093": "g",
+        "blastall_ID000094": "g",
+        "blastall_ID000095": "g",
+        "blastall_ID000096": "g",
+        "blastall_ID000097": "g",
+        "blastall_ID000098": "g",
+        "blastall_ID000099": "g",
+        "blastall_ID000100": "g",
+        "blastall_ID000101": "g",
+        "cat_blast_ID000102": "g",
+        "cat_ID000103": "g"
+    },
+    "FunctionGitRepo": {
+        "synthetic_faas_function": "nolcut/FaaSr-synthetic"
+    },
+    "FunctionInvoke": "split_fasta_ID000001",
+    "InvocationID": "",
+    "FaaSrLog": "FaaSrLog",
+    "LoggingDataStore": "My_Minio_Bucket",
+    "DefaultDataStore": "My_Minio_Bucket",
+    "FunctionCRANPackage": {
+        "synthetic_faas_function": []
+    },
+    "FunctionGitHubPackage": {
+        "synthetic_faas_function": []
+    }
+}
